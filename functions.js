@@ -1,6 +1,7 @@
 // functions file
-const globalState = {}
+window.globalState = {}
 
 function main(appState) {
-    globalState = appState;
+    window.globalState = appState;
+    localStorage.setItem(appState);
 }
