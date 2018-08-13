@@ -1,5 +1,6 @@
 // functions file
+const globalState = {}
 
 function main(appState) {
-    console.log(appState)
+    globalState = appState;
 }
