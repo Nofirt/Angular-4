@@ -1,3 +1,132 @@
-.main {
-    font-family: 'Courier New', Courier, monospace;
+/* Bootstrap fixes */
+
+.col-xs-12,
+.col-md-6 {
+    padding: 10px 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+section:before {
+    content: '';
+    position: absolute;
+    top: 23px;
+    left: 35px;
+    border: solid transparent;
+    border-width: 15px 10px;
+    border-left-color: #80c18c;
+}
+
+section h1 {
+    margin: 0px 0px 10px 0px;
+    text-shadow: 0px 1px 0px white;
+    line-height: 1;
+    padding: 5px 0 5px 36px;
+    font-size: 28px;
+    color: #2e2e2e;
+}
+
+.section-number {
+    padding-right: 5px;
+    position: absolute;
+    left: 10px;
+    top: 23px;
+    width: 25px;
+    height: 30px;
+    line-height: 27px;
+    vertical-align: middle;
+    background-color: #80c18c;
+    color: #fff;
+    font-size: 18px;
+    text-align: right;
+}
+
+.select-container {
+    padding: 10px 0;
+}
+
+select {
+    width: 70%;
+    margin: 0;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #dadada;
+}
+
+.select-label {
+    width: 29%;
+}
+
+section#third {
+    margin-top: 20px;
+}
+
+section#third .section-number {
+    top: 180px;
+}
+
+section#third:before {
+    top: 180px;
+}
+
+/* Radio buttons style */
+
+#configurator-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#window-dropdown,
+#radio-btn-group-container {
+    padding-left: 20px;
+    display: flex;
+    flex-shrink: 0.5;
+    align-self: center;
+}
+
+#window-dropdown {
+    width: 45%;
+}
+
+#radio-btn-group-container {
+    width: 55%;
+}
+
+label.radio-button {
+    padding: 10px 5px;
+}
+
+label.radio-button>input {
+    /* HIDE RADIO */
+    visibility: hidden;
+    /* Makes input not-clickable */
+    position: absolute;
+    /* Remove input from document flow */
+}
+
+label.radio-button>input+img {
+    /* IMAGE STYLES */
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+label.radio-button>input:checked+img {
+    /* (RADIO CHECKED) IMAGE STYLES */
+    border: 2px solid #f00;
+}
+
+/* Second Section */
+
+#configured-container {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
 }

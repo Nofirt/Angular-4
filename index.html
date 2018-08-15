@@ -7,12 +7,102 @@
     <title>Window Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <link href="http://agnesika.bg/new/assets/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="main.js"></script>
 </head>
 
 <body>
     <main>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <section id="first">
+                    <label class="section-number">1</label>
+                    <h1>Изберете вид дограма</h1>
+                    <div id="configurator-container">
+                        <select id="window-dropdown" size="1">
+                            <option value="windows">прозорци</option>
+                            <option value="doors">врати</option>
+                        </select>
+                        <div id="radio-btn-group-container">
+                            <div id="windows-list">
+                                <label class="radio-button">
+                                    <input type="radio" name="windows-group" value="1w" />
+                                    <img src="assets/icons/1w.png">
+                                </label>
+                                <label class="radio-button">
+                                    <input type="radio" name="windows-group" value="2w" />
+                                    <img src="assets/icons/2w.png">
+                                </label>
+                                <label class="radio-button">
+                                    <input type="radio" name="windows-group" value="3w" />
+                                    <img src="assets/icons/3w.png">
+                                </label>
+                                <label class="radio-button">
+                                    <input type="radio" name="windows-group" value="4w" />
+                                    <img src="assets/icons/4w.png">
+                                </label>
+                            </div>
+                            <div id="doors-list">
 
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="third">
+                    <label class="section-number">3</label>
+                    <h1>Изберете вид дограма</h1>
+                    <div class="select-container">
+                        <label class="select-label">Тип профил</label>
+                        <select size="1">
+                            <option value="windows">прозорци</option>
+                            <option value="doors">врати</option>
+                        </select>
+                    </div>
+                    <div class="select-container">
+                        <label class="select-label">Тип профил</label>
+                        <select size="1">
+                            <option value="windows">прозорци</option>
+                            <option value="doors">врати</option>
+                        </select>
+                    </div>
+                    <div class="select-container">
+                        <label class="select-label">Тип профил</label>
+                        <select size="1">
+                            <option value="windows">прозорци</option>
+                            <option value="doors">врати</option>
+                        </select>
+                    </div>
+                    <div class="select-container">
+                        <label class="select-label">Тип профил</label>
+                        <select size="1">
+                            <option value="windows">прозорци</option>
+                            <option value="doors">врати</option>
+                        </select>
+                    </div>
+                    <div class="select-container">
+                        <label class="select-label">Тип профил</label>
+                        <select size="1">
+                            <option value="windows">прозорци</option>
+                            <option value="doors">врати</option>
+                        </select>
+                    </div>
+                </section>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <section id="second">
+                    <label class="section-number">2</label>
+                    <h1>Избрана конфигурация</h1>
+                    <div id="configured-container">
+                        <script id="template" type="text/x-jquery-tmpl">
+                            <img src="assets/images/windows/central.png" alt="central" />
+                        </script>
+                    </div>
+                </section>
+            </div>
+        </div>
     </main>
 </body>
 
