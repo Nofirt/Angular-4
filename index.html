@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <main>
+    <form>
         <div class="row">
             <div class="col-xs-12 col-md-6">
                 <section id="first">
@@ -44,7 +44,18 @@
                                 </label>
                             </div>
                             <div id="doors-list">
-
+                                <label class="radio-button">
+                                    <input type="radio" name="windows-group" value="1d" />
+                                    <img src="assets/icons/1d.png">
+                                </label>
+                                <label class="radio-button">
+                                    <input type="radio" name="windows-group" value="1w1d" />
+                                    <img src="assets/icons/1w1d.png">
+                                </label>
+                                <label class="radio-button">
+                                    <input type="radio" name="windows-group" value="2w1d" />
+                                    <img src="assets/icons/2w1d.png">
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -96,14 +107,14 @@
                     <label class="section-number">2</label>
                     <h1>Избрана конфигурация</h1>
                     <div id="configured-container">
-                        <script id="template" type="text/x-jquery-tmpl">
+                        <!-- <script id="template" type="text/x-jquery-tmpl">
                             <img src="assets/images/windows/central.png" alt="central" />
-                        </script>
+                        </script> -->
                     </div>
                 </section>
             </div>
         </div>
-    </main>
+    </form>
 </body>
 
 </html>
