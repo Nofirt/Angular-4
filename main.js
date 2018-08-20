@@ -1,12 +1,5 @@
-// (function () {
-
-// }());
-
-var globalConfig = {
-    '1w': 'assets/icons/1w.png'
-}
-
 $(document).ready(function () {
+    // App initialization
     var windowList = $("#windows-list");
     var doorsList = $("#doors-list");
     var windowsListFirst = $("#windows-list input[value='1w']");
@@ -14,18 +7,22 @@ $(document).ready(function () {
 
     $(windowsListFirst).prop("checked", true);
     $(doorsList).hide();
+    showWindow('1w');
 
+    // Events
     $("#window-dropdown").change(function () {
         let selectedChoice = $(this).children(":selected").val();
 
-        if (selectedChoice === "doors") {
-            $(windowList).hide();
-            $(doorsList).show();
-            $(doorsListFirst).prop("checked", true);
-        } else if (selectedChoice === "windows") {
+        if (selectedChoice === "windows") {
             $(doorsList).hide();
             $(windowList).show();
             $(windowsListFirst).prop("checked", true);
+            showWindow('1w');
+        } else if (selectedChoice === "doors") {
+            $(windowList).hide();
+            $(doorsList).show();
+            $(doorsListFirst).prop("checked", true);
+            showDoor('1d');
         }
     });
 
@@ -34,17 +31,127 @@ $(document).ready(function () {
     });
 
     $("input[name='doors-group']").change(function () {
-        let selectedChoice = $(this).children(":selected").val();
-        console.log(selectedChoice);
-
+        showDoor($(this).val());
     });
 
-    var showWindow = function (selectedWindow) {
-        console.log(selectedWindow);
-        $("#configured-container").append('<img src="assets/images/windows/central.png" alt="central" />');
+    // Get values from form
+    $("button").click(function () {
+        getFormValues();
+    });
+
+    // Swaping the window in case it's one or in middle
+    $("#configured").on("click", ".middle", function () {
+        switch (this.name) {
+            case "central":
+                this.src = "assets/images/windows/right.png";
+                this.name = "right";
+                break;
+            case "right":
+                this.src = "assets/images/windows/right-up.png";
+                this.name = "right-up";
+                break;
+            case "right-up":
+                this.src = "assets/images/windows/left.png";
+                this.name = "left";
+                break;
+            case "left":
+                this.src = "assets/images/windows/left-up.png";
+                this.name = "left-up";
+                break;
+            default:
+                this.src = "assets/images/windows/central.png";
+                this.name = "central";
+                break;
+        }
+    });
+
+    // Swaping the left window
+    $("#configured").on("click", ".left", function () {
+        switch (this.name) {
+            case "central":
+                this.src = "assets/images/windows/left.png";
+                this.name = "left";
+                break;
+            case "left":
+                this.src = "assets/images/windows/left-up.png";
+                this.name = "left-up";
+                break;
+            default:
+                this.src = "assets/images/windows/central.png";
+                this.name = "central";
+                break;
+        }
+    });
+
+    // Swaping the right window
+    $("#configured").on("click", ".right", function () {
+        switch (this.name) {
+            case "central":
+                this.src = "assets/images/windows/right.png";
+                this.name = "right";
+                break;
+            case "right":
+                this.src = "assets/images/windows/right-up.png";
+                this.name = "right-up";
+                break;
+            default:
+                this.src = "assets/images/windows/central.png";
+                this.name = "central";
+                break;
+        }
+    });
+
+    // Swaping the door
+    $("#configured").on("click", ".door-left", function () {
+        debugger
+        switch (this.name) {
+            case "door-left":
+                this.src = "assets/images/doors/door-lu.png";
+                this.name = "door-left-up";
+                break;
+            default:
+                this.src = "assets/images/doors/door-l.png";
+                this.name = "door-left";
+                break;
+        }
+    });
+
+    // Functions
+    function showWindow(selectedWindow) {
+        if (selectedWindow === '1w') {
+            $("#configured img").remove();
+            $("#configured").append('<img class="middle" name="central" src="assets/images/windows/central.png" />');
+
+        } else if (selectedWindow === '2w') {
+            $("#configured img").remove();
+            $("#configured").append('<img class="left" name="central" src="assets/images/windows/central.png" /><img class="right" name="central" src="assets/images/windows/central.png" />');
+
+        } else if (selectedWindow === '3w') {
+            $("#configured img").remove();
+            $("#configured").append('<img class="left" name="central" src="assets/images/windows/central.png" /><img class="middle" name="central" src="assets/images/windows/central.png" /><img name="central" class="right" src="assets/images/windows/central.png" />');
+
+        } else if (selectedWindow === '4w') {
+            $("#configured img").remove();
+            $("#configured").append('<img name="central" class="left" src="assets/images/windows/central.png" /><img name="central" src="assets/images/windows/central.png" class="middle" /><img name="central" src="assets/images/windows/central.png" class="middle" /><img name="central" class="right" src="assets/images/windows/central.png" />');
+        }
     }
 
-    var getFormValues = function () {
+    function showDoor(selectedDoor) {
+        if (selectedDoor === '1d') {
+            $("#configured img").remove();
+            $("#configured").append('<img class="door-left" name="door-left" src="assets/images/doors/door-l.png" />');
+        } else if (selectedDoor === '1w1d') {
+            $("#configured img").remove();
+            $("#configured").append('<img class="left" name="central" src="assets/images/windows/central.png" /><img name="door-left" class="door-left" src="assets/images/doors/door-l.png" />');
+        } else if (selectedDoor === '2w1d') {
+            $("#configured img").remove();
+            $("#configured").append('<img class="left" name="central" src="assets/images/windows/central.png" /><img class="middle" name="central" src="assets/images/windows/central.png" /><img name="door-left" class="door-left" src="assets/images/doors/door-l.png" />');
+        }
+    }
 
+    function getFormValues() {
+        // just for reminder
+        // get the configuration from clicking the windows and doors
+        console.log($("form").serializeArray());
     }
 });

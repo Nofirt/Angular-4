@@ -19,8 +19,9 @@
                 <section id="first">
                     <label class="section-number">1</label>
                     <h1>Изберете вид дограма</h1>
+
                     <div id="configurator-container">
-                        <select id="window-dropdown" size="1">
+                        <select name="main-choice" id="window-dropdown" size="1">
                             <option value="windows">прозорци</option>
                             <option value="doors">врати</option>
                         </select>
@@ -45,59 +46,61 @@
                             </div>
                             <div id="doors-list">
                                 <label class="radio-button">
-                                    <input type="radio" name="windows-group" value="1d" />
+                                    <input type="radio" name="doors-group" value="1d" />
                                     <img src="assets/icons/1d.png">
                                 </label>
                                 <label class="radio-button">
-                                    <input type="radio" name="windows-group" value="1w1d" />
+                                    <input type="radio" name="doors-group" value="1w1d" />
                                     <img src="assets/icons/1w1d.png">
                                 </label>
                                 <label class="radio-button">
-                                    <input type="radio" name="windows-group" value="2w1d" />
+                                    <input type="radio" name="doors-group" value="2w1d" />
                                     <img src="assets/icons/2w1d.png">
                                 </label>
                             </div>
                         </div>
                     </div>
-
                 </section>
-
                 <section id="third">
                     <label class="section-number">3</label>
                     <h1>Изберете вид дограма</h1>
                     <div class="select-container">
                         <label class="select-label">Тип профил</label>
-                        <select size="1">
+                        <select name="profile" size="1">
                             <option value="windows">прозорци</option>
                             <option value="doors">врати</option>
                         </select>
                     </div>
                     <div class="select-container">
-                        <label class="select-label">Тип профил</label>
-                        <select size="1">
-                            <option value="windows">прозорци</option>
-                            <option value="doors">врати</option>
+                        <label class="select-label">Стъклопакет</label>
+                        <select name="glazed-window" size="1">
+                            <option value="noise-proofing">Шумозащитен</option>
+                            <option value="standart">Стандартен</option>
                         </select>
                     </div>
                     <div class="select-container">
-                        <label class="select-label">Тип профил</label>
-                        <select size="1">
-                            <option value="windows">прозорци</option>
-                            <option value="doors">врати</option>
+                        <label class="select-label">Фурнир</label>
+                        <select name="fittings" size="1">
+                            <option value="well">Добър</option>
                         </select>
                     </div>
                     <div class="select-container">
-                        <label class="select-label">Тип профил</label>
-                        <select size="1">
-                            <option value="windows">прозорци</option>
-                            <option value="doors">врати</option>
+                        <label class="select-label">Ширина на перваза</label>
+                        <select name="window-sill-width" size="1">
+                            <option value="150мм">150мм</option>
+                            <option value="200мм">200мм</option>
+                            <option value="250мм">250мм</option>
+                            <option value="300мм">300мм</option>
                         </select>
                     </div>
                     <div class="select-container">
-                        <label class="select-label">Тип профил</label>
-                        <select size="1">
-                            <option value="windows">прозорци</option>
-                            <option value="doors">врати</option>
+                        <label class="select-label">Ширина на прилива</label>
+                        <select name="width-tide" size="1">
+                            <option value="less-than-100">по-малко от 100мм</option>
+                            <option value="100-150">100-150мм</option>
+                            <option value="150-200">150-200мм</option>
+                            <option value="200-250">200-250мм</option>
+                            <option value="250-300">250-300мм</option>
                         </select>
                     </div>
                 </section>
@@ -107,10 +110,10 @@
                     <label class="section-number">2</label>
                     <h1>Избрана конфигурация</h1>
                     <div id="configured-container">
-                        <!-- <script id="template" type="text/x-jquery-tmpl">
-                            <img src="assets/images/windows/central.png" alt="central" />
-                        </script> -->
+                        <div id="configured">
+                        </div>
                     </div>
+                    <button type="submit">Изпрати конфигурацията</button>
                 </section>
             </div>
         </div>

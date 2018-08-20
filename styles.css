@@ -105,28 +105,63 @@ label.radio-button {
 }
 
 label.radio-button>input {
-    /* HIDE RADIO */
     visibility: hidden;
-    /* Makes input not-clickable */
     position: absolute;
-    /* Remove input from document flow */
 }
 
 label.radio-button>input+img {
-    /* IMAGE STYLES */
     cursor: pointer;
-    border: 2px solid transparent;
 }
 
-label.radio-button>input:checked+img {
-    /* (RADIO CHECKED) IMAGE STYLES */
-    border: 2px solid #f00;
+label.radio-button>input:checked+img:before {
+    top: 0;
+    border-bottom-color: #80c18c;
+}
+
+label.radio-button>input:checked+img:after {
+    bottom: 0;
+    border-bottom-color: #80c18c;
+}
+
+label.radio-button>input:checked+img:after,
+label.radio-button>input:checked+img:before {
+    margin-left: -5px;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    border: 5px solid transparent;
+    bottom: 0;
 }
 
 /* Second Section */
 
 #configured-container {
-    width: 100%;
-    margin: 0 auto;
-    height: auto;
+    padding-top: 110px;
+    height: 480px;
+}
+
+#configured {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left,
+.right,
+.middle {
+    align-self: flex-start;
+}
+
+button {
+    background: linear-gradient(to bottom, #7dbe88 0%, #60a66c 99%);
+    border: 1px solid #60a66c;
+    color: #fff !important;
+    padding: 10px 40px;
+    float: right;
+    margin-top: -40px !important;
+}
+
+img {
+    cursor: pointer;
 }
