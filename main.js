@@ -27,10 +27,24 @@ $(document).ready(function () {
     });
 
     $("input[name='windows-group']").change(function () {
+        let radioGroup = $("input[name='windows-group']");
+        radioGroup.splice(0, 4).forEach(r => {
+            if ($(r.parentElement).hasClass("current")) {
+                $(r.parentElement).removeClass("current")
+            }
+        });
+        $(this.parentElement).addClass("current");
         showWindow($(this).val());
     });
 
     $("input[name='doors-group']").change(function () {
+        let radioGroup = $("input[name='doors-group']");
+        radioGroup.splice(0, 3).forEach(r => {
+            if ($(r.parentElement).hasClass("current")) {
+                $(r.parentElement).removeClass("current")
+            }
+        });
+        $(this.parentElement).addClass("current");
         showDoor($(this).val());
     });
 
@@ -150,8 +164,26 @@ $(document).ready(function () {
     }
 
     function getFormValues() {
-        // just for reminder
-        // get the configuration from clicking the windows and doors
-        console.log($("form").serializeArray());
+        let dropdownCoice = $("#window-dropdown").val();
+        let data = $("form").serializeArray();
+        data.push({
+            name: 'type of windows',
+            value: $("input[name='" + dropdownCoice + "-group']:checked").val()
+        })
+        JSON.stringify(data);
+        $.ajax({
+            url: "script.php",
+            method: "POST",
+            contentType: "application/json",
+            data: data,
+            dataType: "JSON",
+            crossDomain: true,
+            success: (msg) => {
+                alert(msg)
+            },
+            error: (jqXHR, status) => {
+                console.log(jqXHR, status);
+            }
+        })
     }
 });

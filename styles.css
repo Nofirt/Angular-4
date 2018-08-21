@@ -5,6 +5,8 @@
     padding: 10px 10px;
 }
 
+/* All Sections Styles */
+
 form {
     padding: 20px;
 }
@@ -17,7 +19,7 @@ section {
 section:before {
     content: '';
     position: absolute;
-    top: 23px;
+    top: 32px;
     left: 35px;
     border: solid transparent;
     border-width: 15px 10px;
@@ -37,7 +39,7 @@ section h1 {
     padding-right: 5px;
     position: absolute;
     left: 10px;
-    top: 23px;
+    top: 32px;
     width: 25px;
     height: 30px;
     line-height: 27px;
@@ -64,17 +66,7 @@ select {
     width: 29%;
 }
 
-section#third {
-    margin-top: 20px;
-}
-
-section#third .section-number {
-    top: 180px;
-}
-
-section#third:before {
-    top: 180px;
-}
+/* Section First */
 
 /* Radio buttons style */
 
@@ -100,6 +92,11 @@ section#third:before {
     width: 55%;
 }
 
+#windows-list,
+#doors-list {
+    position: relative;
+}
+
 label.radio-button {
     padding: 10px 5px;
 }
@@ -113,18 +110,12 @@ label.radio-button>input+img {
     cursor: pointer;
 }
 
-label.radio-button>input:checked+img:before {
-    top: 0;
-    border-bottom-color: #80c18c;
+label.current {
+    position: relative;
 }
 
-label.radio-button>input:checked+img:after {
-    bottom: 0;
-    border-bottom-color: #80c18c;
-}
-
-label.radio-button>input:checked+img:after,
-label.radio-button>input:checked+img:before {
+label.current::after,
+label.current::before {
     margin-left: -5px;
     content: '';
     display: block;
@@ -132,6 +123,16 @@ label.radio-button>input:checked+img:before {
     left: 50%;
     border: 5px solid transparent;
     bottom: 0;
+}
+
+label.current::before {
+    top: 0;
+    border-top-color: #80c18c;
+}
+
+label.current::after {
+    bottom: 0;
+    border-bottom-color: #80c18c;
 }
 
 /* Second Section */
@@ -164,4 +165,18 @@ button {
 
 img {
     cursor: pointer;
+}
+
+/* Section Third */
+
+section#third {
+    margin-top: 20px;
+}
+
+section#third .section-number {
+    top: 210px;
+}
+
+section#third:before {
+    top: 210px;
 }
